@@ -1,0 +1,338 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1">
+        <meta http-equiv="pragma" content="no-cache">
+        <meta http-equiv="Cache-Control" content="no-cache, must-revalidate">
+        <meta http-equiv="expires" content="-1">
+        <title>揪出那只皮卡丘</title>
+        <link rel="stylesheet" href="css/index.css?20140824">
+		<link rel="stylesheet" href="css/1758.css">
+	<script src="js/util.js?20140826"></script>
+        <script src = "js/jquery.min.js"  charset="utf-8"></script>
+  
+<script>
+var _hmt = _hmt || [];
+var _go=['1758game.net','wxhtml5.com','playwechat.com','youyidou.com','youyisiwang.com'];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?7f70df09d6dc5f12842a518bf47a9e14";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+      <script>
+            arr = ['imag/h3.png'];
+            arr1 = ['imag/h2.png','imag/h3.png','imag/h4.png'];
+            arr2 = ['imag/h2.png','imag/h3.png','imag/h4.png','imag/h5.png?20140901'];
+            var pick_image = 'imag/h6.png';
+            
+            function more(){
+            _hmt.push(['_trackEvent', 'html5', 'forward', '更多游戏']);
+               
+            }
+
+            function adv(){
+            _hmt.push(['_trackEvent', 'html5', 'forward', '广告位1']);
+           
+            }
+        </script>
+    </head>
+    <body style="margin:0;padding:0;">
+	<img style="display:none" src="imag/h2.png">
+	<img style="display:none" src="imag/h3.png">
+	<img style="display:none" src="imag/h4.png">
+	<img style="display:none" src="imag/h5.png">
+	<img style="display:none" src="imag/h6.png">
+<!--微信分享-->
+<div id="weixinshare" style="width:100%;height:100%;margin:0;padding:0;display:none;overflow:hidden;background-color:rgba(0,0,0,0.85);position:relative;z-index:999;">
+	<div style="position:absolute;top:0;right:18px;"><img src="imag/arron.png" width="80" /></div>
+	<div style=" max-width:640px;height:600px;font-size:18px;color:#fff;line-height:50px;text-align:center;">
+	<br />
+	<br />
+点击右上角“分享到朋友圈”<br />
+快让你的朋友也来试试吧
+	</div>
+</div>
+<div id="ggao">
+</div>
+        <div class="grid">
+            <div class="page hide" id="loading" style="display: none;">
+                loading...
+            </div>
+            <div class="page hide" id="index" style="display: block;">
+                <h1></h1>
+				<div class="indextips"></div>
+                <div id="help">1分钟之内找出混迹于卡通人物中的皮卡丘！<br />火眼金睛就是你！</div>
+                <div class="btns">
+                    <button data-type="color" class="btn play-btn">
+                        <!--开始游戏-->
+                    </button><br>
+                </div>
+            </div>
+            <div class="page hide" id="room">
+                <header>
+                    <span class="lv">
+                        已找到
+                        <em>
+                            1
+                        </em>
+个
+                    </span>
+					<div class="timeon">
+                    <span class="time">60
+                    </span>
+					<span class="miao">秒</span>
+					</div>
+                    <span class="btn-pause btnpase">
+                         <img src="imag/btn2.png" />
+                    </span>
+                </header>
+                <div id="box" class="lv1">
+                </div>
+            </div>
+			<!--游戏结果界面样式--->
+            <div class="page hide" id="dialog">
+                <div class="inner">
+                    <div class="content gameover">
+					<div class="diatips"></div><!--top img-->
+                        <p>
+                            本次揪出<span id="nownum"></span>只皮卡丘<br />
+							历史最高纪录<span id="maxnum">0</span>只
+                        </p>
+                        <!--<h3></h3>-->
+                         <!--重来一次-->
+                            <div class="btn-restart">
+								  <img src="imag/btn9.png" />
+                            </div>
+							<div style="height:30px;width:100%;display:block;">&nbsp;</div>
+                            <div class="btn-xy">
+								 <img src="imag/btn10.png" id="xuanyao" />
+                            </div>
+							<div style="height:30px;width:100%;display:block;">&nbsp;</div>
+							
+                           
+							
+                         <div style="height:40px;width:100%;display:block;">&nbsp;</div>
+                    </div>
+					<!--暂停界面样式--->
+                    <div class="content pause">
+                         
+						
+                        <div class="btn-wrap">
+							<div style="height:150px;width:100%;display:block;"></div>
+                            <button class="btn-resume btnpase">
+                            </button>
+							<div style="height:300px;width:100%;display:block;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+			
+			<script type="text/javascript">
+function wei(){
+   _hmt.push(['_trackEvent', 'games', 'download', '1758WxClient']);
+  if (navigator.userAgent.indexOf('iPhone') > -1 || navigator.userAgent.indexOf('iPad') > -1) {
+	_hmt.push(['_trackEvent', 'games', 'download', '1758WxClient_ios']);
+	location.href='http://www.pgyer.com/1758wx';
+  }else{
+    _hmt.push(['_trackEvent', 'games', 'download', '1758WxClient_android']);
+	location.href='http://fusion.qq.com/cgi-bin/qzapps/unified_jump?appid=10959277&from=wx&isTimeline=false&actionFlag=0&params=pname%3Dcn.hlmy.wxgame%26versioncode%3D17%26actionflag%3D0%26channelid%3DANDROIDQQ';
+	}
+}
+        </script>
+
+        </div>
+        <script src = "js/index.js"  charset="utf-8"></script>
+        <script src = "js/main.js?20140901"  charset="utf-8"></script>
+<!-- JiaThis Button BEGIN -->
+<div class="jiathis_style_32x32" id="fenxiang" style="position:absolute;bottom:0px;left:0;width:100%;height:0px;overflow:hidden;background-color:#3f3f3f;">
+	<div style="clear:both;display:block;margin:50px auto 10px;width:80%;height:50px;text-align:center;">
+			<a style="float:left;margin-right:10px;" ><img src="imag/weinxin5.png" height="50" id="weixinpyq"></a>
+			<a style="float:left;margin-right:10px;" ><img src="imag/weixin0.png" height="50" id="weixinpy"></a>
+			<a  style="float:left;margin-right:10px;height:50px;" class="jiathis_button_tsina" id="xlwb" href="#"></a>
+			<a  style="float:left;margin-right:10px;height:50px;" class="jiathis_button_qzone" id="qqkj" href="#"></a>
+	</div>
+	<div style="clear:both;display:block;height:20px;width:100%;">&nbsp;</div>
+	<div id="canfenx" style="clear:both;margin:10px auto 0;width:80%;height:35px;line-height:35px;border-radius:5px;font-size:16px;cursor:pointer;text-align:center;background-color:#999999;color:#fff;">
+			取消
+	</div>
+</div>
+
+	<script type="text/javascript" >
+	var suffix=Math.floor(Math.random()*50000);
+	window.shareData = {
+		        "imgUrl": "http://115.28.233.243/app/searchPikachu/imag/weixinpic.png",
+		        "timeLineLink": "http://115.28.233.243/app/searchPikachu/index.htm",
+		        "tTitle": "揪出那只皮卡丘",
+		        "tContent": "1分钟之内找出混迹于卡通人物中的皮卡丘！火眼金睛就是你！"
+		};
+
+	
+
+	$('#ggao .close').click(function(){
+		$('#ggao').hide();
+		
+	});
+	//休息一下
+	$('.btn-pause').click(function(){
+	
+	});
+//取消img点击会出现黑色背景js
+	$("span").bind("touchstart click",function(e){  
+    e.stopPropagation()  
+    if(e.originalEvent.touches){  
+        //touch 移动端事件处理  
+        return false;  
+    }else{  
+       // PC端 click事件处理  
+     }  
+  
+}) 
+//end
+//取消img点击会出现黑色背景js
+	$("button").bind("touchstart click",function(e){  
+    e.stopPropagation()  
+    if(e.originalEvent.touches){  
+        //touch 移动端事件处理  
+        return false;  
+    }else{  
+       // PC端 click事件处理  
+     }  
+  
+}) 
+//end
+//取消img点击会出现黑色背景js
+	$("a").bind("touchstart click",function(e){  
+    e.stopPropagation()  
+    if(e.originalEvent.touches){  
+        //touch 移动端事件处理  
+        return false;  
+    }else{  
+       // PC端 click事件处理  
+     }  
+  
+}) 
+//end
+	//重来一次，隐藏分享
+	$('#canfenx').click(function(){
+		$('#fenxiang').animate({height:"0px"});
+	});
+	//分享
+	$('#xuanyao').click(function(){
+		window.shareData.tTitle = '我总共找出了'+$("#nownum").text()+'只皮卡丘！快来试试看你能揪出多少只皮卡丘！';
+		shareTimeline1();
+	});
+	
+	</script>
+	<script>
+           
+
+			 function shareFriend1() {
+			     	if (typeof WeixinJSBridge == "undefined") {
+			     			alert("请使用微信分享");
+			     	}else{
+			     		$("#weixinshare").show();
+			     	}
+			 }
+			 function shareTimeline1() {
+			     	// if (typeof WeixinJSBridge == "undefined") {
+			     			// alert("请使用微信分享");
+			     	// }else{
+			     		$("#weixinshare").show();
+			     	//}
+			 }
+            function shareFriend() {
+            	if (typeof WeixinJSBridge == "undefined") {
+            			alert("请使用微信分享");
+            	}else{
+	                WeixinJSBridge.invoke('sendAppMessage',{
+	                    "img_url": window.shareData.imgUrl,
+	                    "img_width": "200",
+	                    "img_height": "200",
+	                    "link": window.shareData.timeLineLink,
+	                    "desc": window.shareData.tContent,
+	                    "title": window.shareData.tTitle
+	                }, function(res) {
+	                })
+            	}
+            }
+            function shareTimeline() {
+            	if (typeof WeixinJSBridge == "undefined") {
+        			alert("请使用微信分享");
+        		}else{
+	                WeixinJSBridge.invoke('shareTimeline',{
+	                    "img_url": window.shareData.imgUrl,
+	                    "img_width": "200",
+	                    "img_height": "200",
+	                    "link": window.shareData.timeLineLink,
+	                    "desc": window.shareData.tContent,
+	                    "title": window.shareData.tTitle
+	                }, function(res) {
+	                });
+        		}
+            }
+            function shareWeibo() {
+                WeixinJSBridge.invoke('shareWeibo',{
+                    "content": descContent,
+                    "url": lineLink,
+                }, function(res) {
+                });
+            }
+            // 当微信内置浏览器完成内部初始化后会触发WeixinJSBridgeReady事件。
+            document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+                // 发送给好友
+                WeixinJSBridge.on('menu:share:appmessage', function(argv){
+                    shareFriend();
+                });
+                // 分享到朋友圈
+                WeixinJSBridge.on('menu:share:timeline', function(argv){
+                    shareTimeline();
+                });
+                // 分享到微博
+                WeixinJSBridge.on('menu:share:weibo', function(argv){
+                    shareWeibo();
+                });
+            }, false);
+
+        //隐藏底部返回及刷新按钮
+        function onBridgeReady(){
+           WeixinJSBridge.call('hideToolbar');
+        }
+
+        if (typeof WeixinJSBridge == "undefined"){
+            if( document.addEventListener ){
+            document.addEventListener('WeixinJSBridgeReady', onBridgeReady, false);
+            }else if (document.attachEvent){
+            document.attachEvent('WeixinJSBridgeReady', onBridgeReady); 
+            document.attachEvent('onWeixinJSBridgeReady', onBridgeReady);
+            }
+        }else{
+            onBridgeReady();
+        }
+    </script>
+	<script>
+//xlwb
+$('#xlwb span').removeClass('jtico');
+$('#xlwb span').css({"background":"url('imag/weibo5.png') no-repeat",
+"height":"50px","width":"50px"
+});
+//xlwb
+$('#qqkj span').removeClass('jtico');
+$('#qqkj span').css({"background":"url('imag/qq4.png') no-repeat",
+"height":"50px",
+	"width":"50px"
+});
+$("#weixinpyq").click(function(){shareTimeline1()});
+$("#weixinpy").click(function(){shareFriend1()});
+$("#weixinshare").click(function(){$("#weixinshare").hide();});
+	</script>
+<!-- JiaThis Button END -->
+<div style="display:none">
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253189485'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1253189485%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+    </body>
+</html>
