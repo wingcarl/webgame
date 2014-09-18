@@ -1,0 +1,145 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>海百川科技</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no,target-densitydpi=device-dpi" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<script src="js/mootools-core-1.4.5.js"></script>
+		<script src="js/touch.js"></script>
+		<script src="js/chainrxn-2.0.js"></script>
+		<script>try{Typekit.load();}catch(e){}</script>
+		<script>
+if(Browser.isMobile){
+	document.addEvent('touchstart touchend', function(event){
+		event.preventDefault();
+	});
+}
+var s = document.getElementById('install');
+</script>
+		<link rel="stylesheet" href="css/styles.css">
+		<link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+	</head>
+	<body>
+		<div id="container">
+			<img src="img/html5.png" alt="HTML5" id="html5">
+			<canvas id="ballField"></canvas>
+			<div id="ballsExpanded"></div>
+			<div id="totalScore"></div>
+			<div id="levelScore"></div>
+			<div id="levelNumber"></div>
+			<div id="notifierBox">
+				<div id="notifierTitle">
+					点击以开炸
+				</div>
+				<div id="notifierButton">
+					开始炸屎
+				</div>
+				<div id="notifierButton2" onclick="clickMore();">
+					更多游戏
+				</div>
+			</div>
+		</div>
+		<script language="javascript"> 
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-325506-4']);
+_gaq.push(['_trackPageview']);
+
+var sos;
+window.onload=function()
+{
+	var w=document.documentElement.clientWidth ;//可见区域宽度
+	var h=document.documentElement.clientHeight;//可见区域高度
+	sos=document.getElementById("ballField");
+	sos.style.height=h+"px";
+	sos.style.width=w+"px";
+}
+</script>
+		<script language=javascript>
+		var mebtnopenurl = 'http://mp.weixin.qq.com/s?__biz=MzA4ODg2MjIyOA==&mid=200696248&idx=1&sn=7e70586177b2612713bb5ea6cc648625#rd';
+		var myscore=0;
+		var mylevel=0;
+		window.shareData = {
+		        "imgUrl": "http://g.9g.com/zsqyj/icon.png",
+		        "timeLineLink": "http://115.28.233.243/lightapp/boomshit/index.html",
+		        "tTitle": "炸屎奇遇记",
+		        "tContent": "《炸屎奇遇记》，来试试你的能力？"
+		};
+				
+		function goHome(){
+			window.location=mebtnopenurl;
+		}
+		function clickMore(){
+			if((window.location+"").indexOf("zf",1)>0){
+				window.location = "http://115.28.233.243/lightapp/hbcindex/index.html";
+			 }
+			 else{
+				goHome();
+			 }
+		}
+		function dp_share(){
+			document.getElementById("share").style.display="";
+			
+		}
+		function dp_Ranking(){
+			window.location=mebtnopenurl;
+		}
+
+		function showAd(){
+		}
+		function hideAd(){
+		}
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		    
+		    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+		        WeixinJSBridge.invoke('sendAppMessage', {
+		            "img_url": window.shareData.imgUrl,
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+
+		    WeixinJSBridge.on('menu:share:timeline', function(argv) {
+		        WeixinJSBridge.invoke('shareTimeline', {
+		            "img_url": window.shareData.imgUrl,
+		            "img_width": "640",
+		            "img_height": "640",
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+		}, false);
+		</script>
+		<div id=share style="display: none">
+			<img width=100% src="img/share.png"
+				style="position: fixed; z-index: 9999; top: 0; left: 0; display: "
+				ontouchstart="document.getElementById('share').style.display='none';">
+		</div>
+		<div style="display: none;">
+			<script type="text/javascript">
+            var myData = { gameid: "zsqyj" };
+			
+			function dp_submitScore(score,level){
+				myscore=score;
+				mylevel=level
+				myData.score = score;
+				myData.scoreName = score+"分";
+				document.title =shareTitle(myscore,mylevel);			
+				window.shareData.tTitle = document.title;
+				game9g.utils.shareConfirm("你不错哟，获得了"+score+"分，快告诉你的小伙伴们吧！",dp_share);
+			}
+			function onShareComplete(res) {
+               
+		        	document.location.href = mebtnopenurl;
+	        }
+			</script>
+   
+	<script type="text/javascript" src="js/game9g.utils.js"></script>
+	<div style="display:none">
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1253189485'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s13.cnzz.com/z_stat.php%3Fid%3D1253189485%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
+</div>
+	</body>
+</html>
