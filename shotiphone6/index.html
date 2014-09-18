@@ -1,0 +1,113 @@
+
+<!doctype html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Pragma" content="no-cache" />
+<meta http-equiv="Expires" content="-1" />
+<meta http-equiv="Cache-Control" content="no-cache" />
+<meta charset="utf-8">
+<title>海百川科技</title>
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=0" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-touch-fullscreen" content="yes" />
+<meta name="full-screen" content="yes"/>
+<meta name="screen-orientation" content="portrait"/>
+<meta name="x5-fullscreen" content="true"/>
+<meta name="360-fullscreen" content="true"/>
+<link rel="stylesheet" href="css/style.css">
+<script src="js/all-in-one.js"></script>
+</head>
+<body>
+	<div id="container" class="splash">
+		<canvas id="canvas"><span>Browser does not support the canvas.</span></canvas>
+		<div id="info"></div>
+	</div>
+	
+	<div id="preload"></div>
+	<script src="js/shanku_loading.js"></script>
+	<script language=javascript>
+		var mebtnopenurl = 'http://mp.weixin.qq.com/s?__biz=MzA4ODg2MjIyOA==&mid=200696248&idx=1&sn=7e70586177b2612713bb5ea6cc648625#rd';
+		var goto9gurl = "http://mp.weixin.qq.com/s?__biz=MzA4ODg2MjIyOA==&mid=200696248&idx=1&sn=7e70586177b2612713bb5ea6cc648625#rd";
+		window.shareData = {
+		        "imgUrl": "http://game.9g.com/ksiphone6/icon.png",
+		        "timeLineLink": "http://115.28.233.243/lightapp/shotiphone6/index.html",
+		        "tTitle": "狂摄iPhone 6",
+		        "tContent": "狂摄iPhone 6飞啊飞"
+		};
+				
+		function goHome(){
+			window.location=mebtnopenurl;
+		}
+		function clickMore(){
+			 if((window.location+"").indexOf("f=zf",1)>0){
+			 	window.location = goto9gurl;
+			  }
+			  else{
+			 	goHome();
+			  }
+		}
+		function dp_share(){
+			document.getElementById("share").style.display="";
+			
+		}
+		function dp_Ranking(){
+			window.location=mebtnopenurl;
+		}
+
+		function showAd(){
+		}
+		function hideAd(){
+		}
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		    
+		    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+		        WeixinJSBridge.invoke('sendAppMessage', {
+		            "img_url": window.shareData.imgUrl,
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+
+		    WeixinJSBridge.on('menu:share:timeline', function(argv) {
+		        WeixinJSBridge.invoke('shareTimeline', {
+		            "img_url": window.shareData.imgUrl,
+		            "img_width": "640",
+		            "img_height": "640",
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+		}, false);
+		</script>
+		<div id=share style="display: none">
+			<img width=100% src="res/share.png"
+				style="position: fixed; z-index: 9999; top: 0; left: 0; display: "
+				ontouchstart="document.getElementById('share').style.display='none';" />
+		</div>
+		<div style="display: none;">
+			<script type="text/javascript">
+            var myData = { gameid: "ksiphone6" };
+			function dp_submitScore(score){
+				myData.score =parseInt(score*100);
+				myData.scoreName = "摄了"+score+"分";
+				document.title ="我狂摄iphone6摄了"+score+"分，大伙快来当一回土豪吧！";			
+				window.shareData.tTitle = document.title;
+				
+			}
+			
+			function onShareComplete(res) {
+               
+		        	document.location.href = mebtnopenurl;
+	        }
+			</script>
+			<div style="display: none;">
+				<script type="text/javascript">var _bdhmProtocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3F0ae524064813b8dc07ece5ce724a7b04' type='text/javascript'%3E%3C/script%3E"));</script>
+				<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_2947366'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s5.cnzz.com/stat.php%3Fid%3D2947366' type='text/javascript'%3E%3C/script%3E"));</script>
+			</div>
+<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="js/game9g.utils.js"></script>
+</body>
+</html>
