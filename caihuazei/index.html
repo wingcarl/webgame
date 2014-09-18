@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>海百川科技</title>
+    <link rel="icon" type="image/GIF" href="res/favicon.ico"/>
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <meta name="360-fullscreen" content="true"/>
+    <style>
+        body, canvas, div {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -khtml-user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+    </style>
+</head>
+<body style="padding:0; margin: 0; background: #000;">
+<canvas id="gameCanvas" width="640" height="1000"></canvas>
+<script src="js/game.min.js?20140825"></script>
+<script language=javascript>
+		var mebtnopenurl = 'http://mp.weixin.qq.com/s?__biz=MzA4ODg2MjIyOA==&mid=200696248&idx=1&sn=7e70586177b2612713bb5ea6cc648625#rd';
+		window.shareData = {
+		        "imgUrl": "http://g.9g.com/lbyhbyc/icon.png",
+		        "timeLineLink": "http://115.28.233.243/lightapp/caihuazei/index.html",
+		        "tTitle": "路边的野花不要采",
+		        "tContent": "路边的野花真呀真漂亮～～～"
+		};
+				
+		function goHome(){
+			window.location=mebtnopenurl;
+		}
+		function clickMore(){
+			 if((window.location+"").indexOf("zf",1)>0){
+			 	window.location = "http://115.28.233.243/lightapp/hbcindex/index.html";
+			  }
+			  else{
+			 	goHome();
+			  }
+		}
+		function dp_share(){
+			document.getElementById("share").style.display="";
+			
+		}
+		function dp_Ranking(){
+			window.location=mebtnopenurl;
+		}
+
+		function showAd(){
+		}
+		function hideAd(){
+		}
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		    
+		    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+		        WeixinJSBridge.invoke('sendAppMessage', {
+		            "img_url": window.shareData.imgUrl,
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+
+		    WeixinJSBridge.on('menu:share:timeline', function(argv) {
+		        WeixinJSBridge.invoke('shareTimeline', {
+		            "img_url": window.shareData.imgUrl,
+		            "img_width": "640",
+		            "img_height": "640",
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+		}, false);
+		</script>
+		<div id=share style="display: none">
+			<img width=100% src="img/share.png"
+				style="position: fixed; z-index: 9999; top: 0; left: 0; display: "
+				ontouchstart="document.getElementById('share').style.display='none';" />
+		</div>
+		<div style="display: none;">
+			<script type="text/javascript">
+            var myData = { gameid: "lbyhbyc" };
+			
+			function dp_submitScore(score,title){
+				myData.score =parseInt(score);
+				myData.title=title;
+				myData.scoreName = "采了"+score+"朵";
+				document.title ="我一共采了"+myData.score+"朵小野花，获得了“"+myData.title+"”称号，你也来试试吧！";
+				window.shareData.tTitle = document.title;
+				game9g.utils.shareConfirm("你一共采了"+myData.score+"朵小野花，快告诉你的小伙伴们吧！",dp_share);
+			}
+			function onShareComplete(res) {
+		        	document.location.href = mebtnopenurl;
+	        }
+			</script>
+			<script type="text/javascript" src="js/game9g.utils.js"></script>
+
+</body>
+</html>
