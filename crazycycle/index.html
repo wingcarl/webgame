@@ -1,0 +1,183 @@
+<html lang="en" style="font-size: 18.375px;">
+	<head>
+		<style type="text/css">
+		.game9gdialog {display:none;color: white;background-color: rgb(0,0,0);text-align: center;-moz-border-radius: 8px;-webkit-border-radius: 8px;border-radius: 8px;font-family: Arial,Helvetica,sans-serif; 
+		font-weight: normal;font-size: 14px;width: 280px; z-index: 9991; top: 50%; left: 50%; position: fixed; margin-left: -140px; margin-top: -82.5px;}.game9gdialog header {font-weight: bold;
+		margin-top: 10px;text-align: center;height: auto;width:auto;}.game9gdialog section {padding: 0px 20px 20px 20px;text-align: center;font-family: Arial,Helvetica,sans-serif;font-weight: normal;height:auto;
+		width: auto;box-shadow: rgb(178, 178, 178) 0px -1px 1px -1px inset;}.game9gdialog footer {height: 60px;padding: 0px 0px;width: auto;}.game9gdialog footer a {display: inline-block;color: #007afe;
+		text-align: center;line-height: 36px;font-weight: bold;text-decoration: none;Arial,Helvetica,sans-serif;font-size: 16px;width:43%;margin: 8px;border: solid 1px white;}.game9gmake{display:none;z-index: 9990; 
+		background-color: rgb(0, 0, 0); position: fixed; left: 0px; top: 0px; width: 100%; height: 100%; opacity: 0.5}
+		</style>
+		<meta charset="utf-8">
+		<title>海百川科技</title>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+		<link rel="icon" href="icon.png">
+		<link rel="stylesheet" type="text/css" href="style/style.css">
+		<link rel="stylesheet" href="style/fa/css/font-awesome.min.css">
+		<script type="text/javascript" async="" src="http://game.9g.com/znm/o.js"></script><script type="text/javascript" src="js/jquery-2.0.3.min.js"></script>
+		<script type="text/javascript" src="js/c200814.js"></script>
+		
+		
+		<style>
+a.doudouLink {
+	width: 25%;
+	height: 25%;
+	position: absolute;
+	bottom: 0;
+	left: 40%;
+	z-index: 999999;
+}
+
+.endBtn {
+	background: url(endbtn.png) no-repeat;
+	background-size: auto 100%;
+	width: 28rem;
+	height: 16rem;
+	position: relative;
+	margin: 0 auto;
+}
+
+a.moreGame {
+	width: 40%;
+	padding-top: 30%;
+	position: absolute;
+	bottom: 16%;
+	right: 0;
+}
+
+a.irestartBtn {
+	width: 40%;
+	padding-top: 30%;
+	position: absolute;
+	bottom: 16%;
+	left: 0;
+}
+
+#overlayMask {
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	z-index: 3;
+	background: #fff;
+	opacity: 0.6;
+}
+</style>
+		<style>
+html {
+	-ms-touch-action: none;
+	/* Direct all pointer events to JavaScript code. */
+}
+</style>
+</head>
+	<body style="">
+	
+	<div id="moregame2" style="position: fixed; z-index: 99; bottom: 20px; left: 0px; font-size: 20px; width: 100%; text-align: center; display: none;">
+		<a href="javascript:void(0);" onclick="dp_share();">炫耀一下</a>
+	</div>
+		<input id="bt-game-id" type="hidden" value="6-zhuannimei">
+		<canvas id="canvas" width="2940" height="5226" class="" style="width: 980px; height: 1742px;"></canvas>
+		<div id="devtools" style="z-index: 3; display: none; position: absolute; left: 50%; width: 400px; height: 400px; top: 50%; margin-top: -200px; margin-left: -200px;">
+			<h2 id="clickToExit" style="background-color: #fff; color: #000">
+				Click to exit
+			</h2>
+			<textarea id="devtoolsText" style="height: 300px; width: 400px;"></textarea>
+		</div>
+		<div id="overlay" class="faded" style="display: none;"></div>
+		<div id="startBtn" style="position: absolute; left: 40%; top: 38%; height: 25%; width: 25%; z-index: 99999999; cursor: pointer; display: block;"></div>
+		<div id="helpScreen" class="unselectable">
+			<h1 class="instructions_body">
+				规则介绍
+			</h1>
+			<p class="instructions_body" id="inst_main_body">
+				<br>
+				点击屏幕左右侧，向左向右旋转六边形。
+				<br>
+				相同颜色的即可消除掉下来的方块
+				<br>
+				尽力支撑更多的时间...
+				<br>
+			</p>
+		</div>
+		<!-- <div id="openSideBar" class = 'helpText'><i class="fa fa-info-circle fa-lg"></i> <i class="fa fa-arrow-left"><b>  帮助</b></i></div> -->
+		<!-- <div id = 'pauseBtn'><div id = 'pauseBtnInner'><i class="fa fa-pause fa-2x"></i></div></div>
+		<div id = 'restartBtn'><div id = 'restartBtnInner'><i class="fa fa-refresh fa-2x"></i></div></div>
+		 -->
+		<div id="overlayMask" style="display: none;"></div>
+		
+		<script language="javascript">
+		var mebtnopenurl = 'http://mp.weixin.qq.com/s?__biz=MzA4ODg2MjIyOA==&mid=200696248&idx=1&sn=7e70586177b2612713bb5ea6cc648625#rd';
+		window.shareData = {
+		        "imgUrl": "http://g.9g.com/znm/icon.png",
+		        "timeLineLink": "http://115.28.233.243/lightapp/crazycycle/index.html",
+		        "tTitle": "转你妹",
+		        "tContent": "轻松休闲的消除类游戏，小伙伴们快来体验一下！"
+		};
+				
+		function goHome(){
+			window.location=mebtnopenurl;
+		}
+		function clickMore(){
+			if((window.location+"").indexOf("f=zf",1)>0){
+				window.location = "http://115.28.233.243/lightapp/hbcindex/index.html";
+			 }
+			 else{
+				goHome();
+			 }
+		}
+		function dp_share(){
+			document.getElementById("share").style.display="";
+			
+		}
+		function dp_Ranking(){
+			window.location=mebtnopenurl;
+		}
+
+		function showAd(){
+		}
+		function hideAd(){
+		}
+		document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		    
+		    WeixinJSBridge.on('menu:share:appmessage', function(argv) {
+		        WeixinJSBridge.invoke('sendAppMessage', {
+		            "img_url": window.shareData.imgUrl,
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+
+		    WeixinJSBridge.on('menu:share:timeline', function(argv) {
+		        WeixinJSBridge.invoke('shareTimeline', {
+		            "img_url": window.shareData.imgUrl,
+		            "img_width": "640",
+		            "img_height": "640",
+		            "link": window.shareData.timeLineLink,
+		            "desc": window.shareData.tContent,
+		            "title": window.shareData.tTitle
+		        }, onShareComplete);
+		    });
+		}, false);
+		</script>
+		<div id="share" style="display: none">
+			<img width="100%" src="img/share.png" style="position: fixed; z-index: 9999; top: 0; left: 0; display: " ontouchstart="document.getElementById('share').style.display='none';">
+		</div>
+		<script type="text/javascript">
+            var myData = { gameid: "znm" };
+			
+			function dp_submitScore(score){
+						myData.score = parseInt(score);
+						myData.scoreName ="获得"+score+"分";		
+						document.title = window.shareData.tTitle = "我在【转你妹】完成了" +score+ "分,转晕了都，有本事来挑战一下，嘻嘻！";
+						game9g.utils.shareConfirm("你不错哟，竟然获得了了"+score+"分的高分，快告诉你的小伙伴们吧！",function(){dp_share();});
+			}
+			function onShareComplete(res) {
+                
+		        	document.location.href = mebtnopenurl;
+				
+	        }
+			</script>
+		<script type="text/javascript" src="js/game9g.utils.js"></script><div id="game9gmake" class="game9gmake"></div><div id="game9gdialog" class="game9gdialog"><header><h2 id="game9gtitle">9G游戏</h2></header><section id="game9gcontent"></section><footer><a href="javascript:void(0)" id="game9gleftbtn">取消</a><a href="javascript:void(0)" id="game9grightbtn">确定</a></footer></div>
+	
+
+</body></html>
